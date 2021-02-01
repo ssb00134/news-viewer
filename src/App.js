@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react';
+import NewsList from './components/NewsList';
 
 const App = () => {
   const [data, setData] = useState(null);
@@ -13,20 +14,7 @@ const App = () => {
       console.log(error);
     }
   };
-  return (
-    <div>
-      <div>
-        <button onClick={onclick}>불러오기</button>
-      </div>
-      {data && (
-        <textarea
-          rows={7}
-          value={JSON.stringify(data, null, 2)}
-          readOnly={true}
-        />
-      )}
-    </div>
-  );
+  return <NewsList />;
 };
 
 export default App;
