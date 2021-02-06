@@ -1,16 +1,12 @@
-import axios from 'axios';
-import React, { useState, useCallback } from 'react';
-import Categories from './components/Categories';
-import NewsList from './components/NewsList';
+import React from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
+import NewsPage from './pages/NewsPage';
 
 const App = () => {
-  const [category, setCategory] = useState('all');
-  const onSelect = useCallback((category) => setCategory(category), []);
   return (
-    <>
-      <Categories category={category} onSelect={onSelect}></Categories>
-      <NewsList category={category} />
-    </>
+    <BrowserRouter>
+      <Route path="/:category?" component={NewsPage} />;
+    </BrowserRouter>
   );
 };
 
